@@ -8,8 +8,9 @@
 import StoreKit
 class Store: ObservableObject {
     
-    private var productIDs = ["member"]
+    private var productIDs = ["member","tomato"]
     @Published var purchasedNonConsumables = Set<Product>()
+    @Published var purchasedConsumables = [Product]()
     @Published var products = [Product]()
     var transacitonListener: Task<Void, Error>?
     init() {
@@ -41,7 +42,8 @@ class Store: ObservableObject {
         // 2:
         case .success(.verified(let transaction)):
           // 3:
-          purchasedNonConsumables.insert(product)
+          self.addPurchased(product)
+        
             // 4:
           await transaction.finish()
           return transaction
@@ -72,7 +74,7 @@ class Store: ObservableObject {
           else {
             return
           }
-          self.purchasedNonConsumables.insert(product)
+          self.addPurchased(product)
           await transaction.finish()
         default:
           return
@@ -84,5 +86,27 @@ class Store: ObservableObject {
         await self.handle(transactionVerification: result)
             }
         }
+    
+    private func addPurchased(_ product: Product) {
+      switch product.type {
+       case .consumable:
+         purchasedConsumables.append(product)
+          Persistence.increaseConsumablesCount()
+       case .nonConsumable:
+        purchasedNonConsumables.insert(product)
+       default:
+       return
+      }
+    }
 }
 
+import Foundation
+class Persistence {
+ static let consumablesCountKey = "consumablesCount"
+ private static let storage = UserDefaults()
+    
+ static func increaseConsumablesCount() {
+    let currentValue = storage.integer(forKey: Persistence.consumablesCountKey)
+        storage.set(currentValue + 1, forKey: Persistence.consumablesCountKey)
+    }
+}

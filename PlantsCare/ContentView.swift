@@ -10,7 +10,7 @@ struct ContentView: View {
     
     @EnvironmentObject var store: Store
     
-    //@AppStorage(Persistence.consumablesCountKey) var consumableCount: Int = 0
+    @AppStorage(Persistence.consumablesCountKey) var consumableCount: Int = 0
     
     var body: some View {
         if #available(iOS 16.0, *) {
@@ -21,7 +21,7 @@ struct ContentView: View {
                         .foregroundColor(.primary)) {
                             HStack(spacing: 20) {
                                 ProductView(icon: "👤", quantity: "\(store.purchasedNonConsumables.count)")
-                               // ProductView(icon: "🍅", quantity: "\(store.purchasedConsumables.count)")
+                                ProductView(icon: "🍅", quantity: "\(consumableCount)")
                                // ProductView(icon: "🪴", quantity: "0")
                                // ProductView(icon: "🪱", quantity: "0")
                             }
