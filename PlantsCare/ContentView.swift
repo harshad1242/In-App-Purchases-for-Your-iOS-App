@@ -22,7 +22,10 @@ struct ContentView: View {
                             HStack(spacing: 20) {
                                 ProductView(icon: "👤", quantity: "\(store.purchasedNonConsumables.count)")
                                 ProductView(icon: "🍅", quantity: "\(consumableCount)")
-                               // ProductView(icon: "🪴", quantity: "0")
+                                ProductView(icon: "🪴", quantity: "\(store.purchasedSubscriptions.count)")
+                              //  ProductView(icon: "👘", quantity: "\(store.purchasedNonConsumables.count)")
+                                ProductView(icon: "🥻", quantity: "\(store.purchasedNonRenewables.count)")
+                               // ProductView(icon: "🦸", quantity: "\(store.purchasedSubscriptions.count)")
                                // ProductView(icon: "🪱", quantity: "0")
                             }
                             .padding(.vertical)
@@ -56,7 +59,12 @@ struct ContentView: View {
                             }
                         }
                     
-                    
+                    Button("Restore purchases") {
+                        Task {
+                            try await store.restore()
+                        }
+                    }
+                    NavigationLink("Support", destination: SupportView())
                 }
                 .navigationTitle("Store")
             }

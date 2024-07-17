@@ -1,0 +1,172 @@
+{
+  "identifier" : "FF8A1025",
+  "nonRenewingSubscriptions" : [
+    {
+      "displayPrice" : "9.99",
+      "familyShareable" : false,
+      "internalID" : "6544807826",
+      "localizations" : [
+        {
+          "description" : "Tournament Streaming",
+          "displayName" : "Tournament Streaming",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "Tournament_Streaming",
+      "referenceName" : "Tournament Streaming",
+      "type" : "NonRenewingSubscription"
+    }
+  ],
+  "products" : [
+    {
+      "displayPrice" : "1.99",
+      "familyShareable" : false,
+      "internalID" : "6544807516",
+      "localizations" : [
+        {
+          "description" : "Membership",
+          "displayName" : "Member",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "member",
+      "referenceName" : "Member",
+      "type" : "NonConsumable"
+    },
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "6544807174",
+      "localizations" : [
+        {
+          "description" : "Tomato Veg",
+          "displayName" : "Tomato",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "tomato",
+      "referenceName" : "Tomato",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+    "_applicationInternalID" : "6544805741",
+    "_developerTeamID" : "FU7XBRZN9Z",
+    "_failTransactionsEnabled" : false,
+    "_lastSynchronizedDate" : 742816504.09636497,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "21511413",
+      "localizations" : [
+
+      ],
+      "name" : "Subscription Groups",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "9.99",
+          "familyShareable" : false,
+          "groupNumber" : 2,
+          "internalID" : "6544808463",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Elite Membership Description",
+              "displayName" : "Elite Membership",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "membership.elite",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Elite",
+          "subscriptionGroupID" : "21511413",
+          "type" : "RecurringSubscription"
+        },
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 3,
+          "internalID" : "6544808932",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Pro Membership Description",
+              "displayName" : "Pro Membership",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "membership.pro",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Pro Membership",
+          "subscriptionGroupID" : "21511413",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

@@ -9,6 +9,7 @@ import SwiftUI
 import StoreKit
 
 struct RefundView: View {
+    
     @EnvironmentObject var store: Store
     @Environment(\.dismiss) private var dismiss
     
@@ -17,7 +18,7 @@ struct RefundView: View {
     
     var body: some View {
         Form {
-           /* ForEach($store.entitlements, id: \.id) { transaction in
+            ForEach(store.entitlements, id: \.id) { transaction in
                 HStack {
                     Text(transaction.purchaseDate.formatted())
                     Spacer()
@@ -25,7 +26,7 @@ struct RefundView: View {
                         startRefund(transactionID: transaction.id)
                     }
                 }
-            }*/
+            }
         }
         .refundRequestSheet(
             for: selectedTransactionID ?? 0,
@@ -48,6 +49,7 @@ struct RefundView: View {
             return
         }
     }
+    
 }
 
 struct RefundView_Previews: PreviewProvider {

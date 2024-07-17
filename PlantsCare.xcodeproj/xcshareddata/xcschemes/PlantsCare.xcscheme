@@ -75,7 +75,7 @@
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
-         identifier = "../../PlantsCare/PlantsCare.storekit">
+         identifier = "../../My Plants Care.storekit">
       </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction

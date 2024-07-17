@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0445312C467AF40084A4F8 /* My Plants Care.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3C0445302C467AF30084A4F8 /* My Plants Care.storekit */; };
+		3C0445322C467AF40084A4F8 /* My Plants Care.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3C0445302C467AF30084A4F8 /* My Plants Care.storekit */; };
+		3C0445332C467AF40084A4F8 /* My Plants Care.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3C0445302C467AF30084A4F8 /* My Plants Care.storekit */; };
 		3C16AEB92C2AACEA0072188B /* RefundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16AEB82C2AACEA0072188B /* RefundView.swift */; };
 		3C16AEBB2C3117030072188B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C16AEBA2C3117030072188B /* Store.swift */; };
 		3C5F5AAE2C27EA8000D999CE /* PlantsCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5F5AAD2C27EA8000D999CE /* PlantsCareApp.swift */; };
@@ -39,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C0445302C467AF30084A4F8 /* My Plants Care.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = "My Plants Care.storekit"; sourceTree = "<group>"; };
 		3C16AEB82C2AACEA0072188B /* RefundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundView.swift; sourceTree = "<group>"; };
 		3C16AEBA2C3117030072188B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		3C5F5AAA2C27EA8000D999CE /* PlantsCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlantsCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +88,7 @@
 		3C5F5AA12C27EA8000D999CE = {
 			isa = PBXGroup;
 			children = (
+				3C0445302C467AF30084A4F8 /* My Plants Care.storekit */,
 				3C5F5AAC2C27EA8000D999CE /* PlantsCare */,
 				3C5F5ABD2C27EA8300D999CE /* PlantsCareTests */,
 				3C5F5AC72C27EA8300D999CE /* PlantsCareUITests */,
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C5F5AD82C28327200D999CE /* PlantsCare.storekit in Resources */,
+				3C0445312C467AF40084A4F8 /* My Plants Care.storekit in Resources */,
 				3C5F5AB52C27EA8300D999CE /* Preview Assets.xcassets in Resources */,
 				3C5F5AB22C27EA8300D999CE /* Assets.xcassets in Resources */,
 			);
@@ -256,6 +262,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0445322C467AF40084A4F8 /* My Plants Care.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +270,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C0445332C467AF40084A4F8 /* My Plants Care.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +453,7 @@
 				DEVELOPMENT_TEAM = FU7XBRZN9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Plants Care";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -475,6 +484,7 @@
 				DEVELOPMENT_TEAM = FU7XBRZN9Z;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Plants Care";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

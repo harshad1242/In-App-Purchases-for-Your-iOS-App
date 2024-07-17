@@ -8,11 +8,25 @@
 import StoreKit
 class Store: ObservableObject {
     
-    private var productIDs = ["member","tomato"]
+    private var productIDs = ["member","tomato","Tournament_Streaming","membership.elite","membership.pro"]
+    
+    @Published var entitlements = [Transaction]()
+    
+    @Published var purchasedSubscriptions = Set<Product>()
     @Published var purchasedNonConsumables = Set<Product>()
+    @Published var purchasedNonRenewables = Set<Product>() // new line
     @Published var purchasedConsumables = [Product]()
+    
     @Published var products = [Product]()
     var transacitonListener: Task<Void, Error>?
+    var tournamentEndDate: Date = {
+      var components = DateComponents()
+      components.year = 2033
+      components.month = 2
+      components.day = 1
+      return Calendar.current.date(from: components)!
+    }()
+    
     init() {
         transacitonListener = listenForTransactions()
         Task {
@@ -36,20 +50,23 @@ class Store: ObservableObject {
     @MainActor
     func purchase(_ product: Product) async throws -> Transaction?{
       // 1:
-      let result =
-        try await product.purchase()
+      let result = try await product.purchase()
       switch result {
         // 2:
         case .success(.verified(let transaction)):
           // 3:
           self.addPurchased(product)
-        
             // 4:
           await transaction.finish()
           return transaction
         default:
           return nil
       }
+    }
+    
+    @MainActor
+     func restore() async throws {
+      try await AppStore.sync()
     }
     
     func listenForTransactions() -> Task < Void, Error > {
@@ -62,36 +79,67 @@ class Store: ObservableObject {
       }
     }
     
-    
     @MainActor
+    @discardableResult
+    private func handle(transactionVerification result: VerificationResult<Transaction>) async -> Transaction? {
+        switch result {
+        case let .verified(transaction):
+            guard let product = self.products.first(where: { $0.id == transaction.productID}) else { return transaction }
+            
+            guard !transaction.isUpgraded else { return nil }
+            
+            self.addPurchased(product)
+            
+            await transaction.finish()
+            
+            return transaction
+        default:
+            return nil
+        }
+    }
+    
+   /* @MainActor
     private func handle(transactionVerification result: VerificationResult <Transaction> ) async {
       switch result {
         case let.verified(transaction):
-          guard
-          let product = self.products.first(where: {
+         
+          guard let product = self.products.first(where: {
             $0.id == transaction.productID
           })
           else {
             return
           }
+          guard !transaction.isUpgraded else { return  }
           self.addPurchased(product)
+          
           await transaction.finish()
         default:
           return
       }
-    }
+    }*/
     
     private func updateCurrentEntitlements() async {
-      for await result in Transaction.currentEntitlements {
-        await self.handle(transactionVerification: result)
+        
+        for await result in Transaction.currentEntitlements {
+            if let transaction = await self.handle(transactionVerification: result) {
+                entitlements.append(transaction)
             }
+            
         }
+    }
     
     private func addPurchased(_ product: Product) {
       switch product.type {
        case .consumable:
          purchasedConsumables.append(product)
           Persistence.increaseConsumablesCount()
+      case .nonRenewable:
+       if Date() <= tournamentEndDate {
+       purchasedNonRenewables.insert(product)
+      }
+      case .autoRenewable:
+       purchasedSubscriptions.insert(product)
+          
        case .nonConsumable:
         purchasedNonConsumables.insert(product)
        default:

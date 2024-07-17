@@ -9,7 +9,9 @@ import SwiftUI
 import StoreKit
 
 struct SupportView: View {
+    
     @State var isManageSubscriptionsSheetPresented: Bool = false
+    
     @State var isOfferCodeRedepmtionPresented: Bool = false
     
     var body: some View {
